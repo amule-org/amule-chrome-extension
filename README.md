@@ -5,7 +5,7 @@ computer's registered eD2k application. Chromium rejects links containing litera
 `|` characters; the extension replaces those characters with `%7C` before normal
 link activation. Existing filename escapes and other URL schemes are preserved.
 
-Install **aMule 3.1.0 or later** and enable its eD2k link-handler registration
+Install **aMule 3.1.0 or later** and turn on **Register aMule for ed2k:// links**
 in **Preferences → General**. Version 3.1.0 is the first aMule release that
 accepts `%7C` delimiters and provides handler registration. Another application
 must support encoded delimiters and be registered for `ed2k:` to work.

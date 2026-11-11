@@ -1,4 +1,4 @@
-# Development and releases
+# Development
 
 ## Build and test
 
@@ -78,18 +78,3 @@ The optional full application smoke test is still needed to establish queue acce
 Windows/macOS, native context-menu selection and peer file transfer are not
 covered. Test failures and evidence must not be interpreted as success merely
 because Chrome logged an external-handler launch.
-
-## Release process
-
-1. Complete the platform checks in [RELEASING.md](RELEASING.md).
-2. Set the same version in `manifest.json`, `package.json` and
-   `package-lock.json`, then merge the reviewed changes.
-3. Create and push a `v<version>` tag in the upstream repository, for example
-   `v1.0.0`. The tag must match both the manifest and npm package versions.
-4. The release workflow checks out that tag, runs the DOM tests, builds the ZIP
-   and attaches `ed2k-link-fixer.zip` to a GitHub release. It needs no npm token
-   or Chrome Web Store credentials. Check the workflow and download the release
-   asset before announcing availability.
-
-The workflow never uploads to the Chrome Web Store. Publisher ownership and
-store submission remain separate decisions for the maintainers.
