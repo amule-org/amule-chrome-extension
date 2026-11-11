@@ -1,8 +1,8 @@
-# First-release checks
+# Releasing
 
 Linux has automated logging-handler coverage. The optional Linux application
-smoke test verifies the aMule queue. Windows and macOS handoff have **not** been
-validated. A release workflow alone does not establish platform support.
+smoke test verifies the aMule queue. Windows and macOS handoff need the manual
+checks below. A release workflow alone does not establish platform support.
 
 ## Windows and macOS handoff
 
@@ -44,18 +44,21 @@ logging handler does not establish that its Windows/macOS registration works.
 Keep the browser's real permission prompt enabled. These synthetic hashes are
 for queue inspection only; successful peer transfer is outside this check.
 
-## Release ZIP
+## Release
 
-Follow the tag procedure in [DEVELOPING.md](DEVELOPING.md) after reviewing the
-platform evidence and any remaining limitations. The upstream tag workflow
-publishes a GitHub release asset built from that tag, rather than requiring users
-to retrieve a CI artifact. Download and extract the attached ZIP, load its
-`ed2k-link-fixer` directory in Chrome, and check the toolbar help and a link click.
-A first release remains pending until a maintainer pushes an approved version tag
-and the release asset is verified.
+1. Complete the platform checks above and review any remaining limitations.
+2. Set the same version in `manifest.json`, `package.json` and
+   `package-lock.json`, then merge the reviewed changes.
+3. Create and push a `v<version>` tag in the upstream repository, for example
+   `v1.0.0`. The tag must match both the manifest and npm package versions.
+4. The release workflow checks out that tag, runs the DOM tests, builds the ZIP
+   and attaches `ed2k-link-fixer.zip` to a GitHub release. It needs no npm token
+   or Chrome Web Store credentials.
+5. Download and extract the attached ZIP, load its `ed2k-link-fixer` folder in
+   Chrome, and check the toolbar help and a link click before announcing the
+   release.
 
 ## Chrome Web Store
 
-There is no store listing or agreed publisher account. Maintainers must designate
-an account owner before store submission; no personal account is assumed by the
-release workflow. Store publication is not performed by this repository's CI.
+The release workflow never uploads to the Chrome Web Store. Maintainers must
+designate a publisher account before store submission.
